@@ -10,8 +10,8 @@
             <div class="text-green-500 font-bold text-xl">${{item.item_price}}</div>
             <div>{{item.item_desc}}</div>
             <div >
-                <a class=" bg-yellow-500 rounded-md font-bold p-2" href=""> Edit </a>
-                <a class=" bg-red-500 rounded-md font-bold mx-3 p-2" href="">Delete</a>
+                <a class=" bg-yellow-500 rounded-md font-bold p-2" href="{% url 'myApp:update_item' item.id %}"> Edit </a>
+                <a class=" bg-red-500 rounded-md font-bold mx-3 p-2" href="{% url 'myApp:delete_item' item.id %}">Delete</a>
             </div>
             
         </div>

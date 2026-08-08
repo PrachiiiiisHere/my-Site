@@ -1,6 +1,12 @@
-<form method="POST">
-    {% csrf_token %}
-    {{form}}
-    <button type="submit">Save</button>
+{% extends 'myApp/base.html' %}
+{% block body %}
+<div class="p-5">
+    <form method="POST">
+        {% csrf_token %}
+        {{form}}
+        <button type="submit" class="bg-blue-500 px-3 py-2 text-white">Save</button>
 
-</form>
+    </form>
+</div>
+
+{% endblock %}

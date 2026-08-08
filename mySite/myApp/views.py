@@ -33,3 +33,22 @@ def create_item(request):
         'form':form
     }
     return render(request,'myApp/item-form.html',context)
+
+def update_item(request,id):
+    item=Item.objects.get(id=id)
+    form=ItemForm(request.POST or None, instance=item)
+    if form.is_valid():
+        form.save()
+        return redirect('myApp:index')
+    context={
+        'form':form
+    }
+    return render(request,'myApp/item-form.html',context)
+
+def delete_item(request, id):
+    item=Item.objects.get(id=id)
+    if request.method=="POST":
+        item.delete()
+        return redirect('myApp:index')
+    return render(request,'myApp/item-delete.html') #why don't we need context here?
+    
